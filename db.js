@@ -20,5 +20,5 @@ async function insert(customer){
 }
 
 module.exports = {
-	
+	insert	
 }

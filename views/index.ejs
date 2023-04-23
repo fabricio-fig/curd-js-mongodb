@@ -7,5 +7,20 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+     <form action="save" method="post" > 
+    	<p>
+    		<label>Nome:</label>
+		<input type="text" name="name"/>
+    	</p>
+    	
+	<p>
+		<label>Idade:</label>
+		<input type="number" name="age"/>
+    	</p>
+    	
+	<p>
+		<input type="submit" value="Salvar"/>
+    	<p/>
+    </form>
   </body>
 </html>
