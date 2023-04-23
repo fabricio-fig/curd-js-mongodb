@@ -10,10 +10,11 @@
     <ul>
     	<% for(let i=0; i < result.length; i++) { %>
 		<li>
-			<%= result[i]._id %>
+			<%= result[i].name %>(<%= result[i]._id %>)
 		</li>
 	<%}%>
     </ul>
+    
     <h2>Cadastro</h2> 
     <form action="save" method="post" > 
     	<p>
@@ -28,6 +29,7 @@
 		   <input type="submit" value="Salvar"/>
     	<p/>
     </form>
+    
     <h2>Exclusão</h2>
     <form action="delete" method="post" > 
       <p>
@@ -37,6 +39,21 @@
       <p>
        <input type="submit" value="Excluir"/>
       <p/>
+    </form>
+
+    <h2>Edição</h2> 
+    <form action="edit" method="post" > 
+    	<p>
+    	    <label>ID:</label>
+	    <input type="text" name="id"/>
+    	</p>
+	<p>
+    	   <label>Nome:</label>
+	   <input type="text" name="name"/>
+    	</p>
+	<p>
+	   <input type="submit" value="Editar"/>
+    	<p/>
     </form>
   </body>
 </html>

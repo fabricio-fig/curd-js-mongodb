@@ -28,8 +28,14 @@ async function remove(id){
 	const db = await connect();
 	return db.collection("customers").deleteOne({ _id: new ObjectId(id) });
 }
+
+async function update(id, name){
+	const db = await connect();
+	return db.collection("customers").updateOne({ _id: new ObjectId(id) }, { $set:{ name } });
+}
 module.exports = {
 	insert,
 	find,
-	remove
+	remove,
+	update	
 }

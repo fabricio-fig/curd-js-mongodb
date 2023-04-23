@@ -20,6 +20,15 @@ router.post("/delete", async (req, res) => {
 	const result = await db.remove(id);
 	res.json(result);
 });
+
+router.post("/edit", async (req, res) => {
+	const id = req.body.id;
+	const name = req.body.name;
+	const result = await db.update(id, name);
+	console.log(result);
+	res.json(result);
+
+});
 module.exports = router;
 
 
