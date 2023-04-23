@@ -6,28 +6,37 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h2>Listagem</h2>
     <ul>
     	<% for(let i=0; i < result.length; i++) { %>
 		<li>
-			<%= result[i].name %>
+			<%= result[i]._id %>
 		</li>
 	<%}%>
-    </ul> 
+    </ul>
+    <h2>Cadastro</h2> 
     <form action="save" method="post" > 
     	<p>
     		<label>Nome:</label>
-		<input type="text" name="name"/>
+		    <input type="text" name="name"/>
     	</p>
-    	
-	<p>
-		<label>Idade:</label>
-		<input type="number" name="age"/>
+	    <p>
+		   <label>Idade:</label>
+		   <input type="number" name="age"/>
     	</p>
-    	
-	<p>
-		<input type="submit" value="Salvar"/>
+	    <p>
+		   <input type="submit" value="Salvar"/>
     	<p/>
+    </form>
+    <h2>Exclusão</h2>
+    <form action="delete" method="post" > 
+      <p>
+        <label>ID:</label>
+        <input type="text" name="id"/>
+      </p>
+      <p>
+       <input type="submit" value="Excluir"/>
+      <p/>
     </form>
   </body>
 </html>
