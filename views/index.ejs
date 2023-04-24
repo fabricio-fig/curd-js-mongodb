@@ -6,54 +6,14 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <h2>Listagem</h2>
     <ul>
-    	<% for(let i=0; i < result.length; i++) { %>
-		<li>
-			<%= result[i].name %>(<%= result[i]._id %>)
-		</li>
-	<%}%>
+    	<% result.forEach(function(customer){ %>
+	 <li>
+		<%= customer.name %>
+	 </li>
+ 	<% }) %>
     </ul>
-    
-    <h2>Cadastro</h2> 
-    <form action="save" method="post" > 
-    	<p>
-    		<label>Nome:</label>
-		    <input type="text" name="name"/>
-    	</p>
-	    <p>
-		   <label>Idade:</label>
-		   <input type="number" name="age"/>
-    	</p>
-	    <p>
-		   <input type="submit" value="Salvar"/>
-    	<p/>
-    </form>
-    
-    <h2>Exclusão</h2>
-    <form action="delete" method="post" > 
-      <p>
-        <label>ID:</label>
-        <input type="text" name="id"/>
-      </p>
-      <p>
-       <input type="submit" value="Excluir"/>
-      <p/>
-    </form>
-
-    <h2>Edição</h2> 
-    <form action="edit" method="post" > 
-    	<p>
-    	    <label>ID:</label>
-	    <input type="text" name="id"/>
-    	</p>
-	<p>
-    	   <label>Nome:</label>
-	   <input type="text" name="name"/>
-    	</p>
-	<p>
-	   <input type="submit" value="Editar"/>
-    	<p/>
-    </form>
+    <hr/>
+    	<a href="/">Cadastrar novo Cliente<a/>
   </body>
 </html>

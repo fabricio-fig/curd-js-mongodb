@@ -19,7 +19,7 @@ async function insert(customer){
 	return db.collection("customers").insertOne(customer);
 }
 
-async function find(){
+async function findAll(){
 	const db = await connect();
 	return db.collection("customers").find().toArray();
 }
@@ -35,7 +35,7 @@ async function update(id, name){
 }
 module.exports = {
 	insert,
-	find,
+	findAll,
 	remove,
 	update	
 }
