@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 const db = require("../db");
 
-/*GET home page. */
-router.get('/', (req, res, next) => {
-	res.render('new', { title: 'Novo Cadastro'});
+router.get('/newuser', (req, res, next) => {
+	res.render('new', { title: 'Novo Cadastro', result: {"name":"", "age":""}, action: '/new' });
 });
+
 router.post('/new', async (req, res, next) => {
 	const name = req.body.name;
 	const age = parseInt(req.body.age);
@@ -34,14 +34,31 @@ router.post("/delete", async (req, res) => {
 	res.json(result);
 });
 
-router.post("/edit", async (req, res) => {
-	const id = req.body.id;
-	const name = req.body.name;
-	const result = await db.update(id, name);
-	console.log(result);
-	res.json(result);
-
+router.get('/edit/:id', async (req, res, next) => {
+	const id = req.params.id;
+	
+	try{
+	    const result = await db.findOne(id);
+	    res.render('new', { title: 'Edição de Cliente', result, action: '/edit/' + result._id });
+	}catch(err){
+	   next(err);
+	}
 });
+
+router.post('/edit/:id', async (req, res) => {
+	const id = req.params.id;
+	const name = req.body.name;
+	const age = parseInt(req.body.age);
+
+	try{
+		const result = await db.update(id, { name, age });
+		console.log(result);
+		res.redirect('/userlist');
+	}catch(err){
+		next(err);
+	}
+});
+
 module.exports = router;
 
 

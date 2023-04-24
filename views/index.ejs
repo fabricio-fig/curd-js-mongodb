@@ -9,11 +9,13 @@
     <ul>
     	<% result.forEach(function(customer){ %>
 	 <li>
+	     <a href="/edit/<%= customer._id %>">
 		<%= customer.name %>
+	     </a>
 	 </li>
  	<% }) %>
     </ul>
     <hr/>
-    	<a href="/">Cadastrar novo Cliente<a/>
+    	<a href="/newuser">Cadastrar novo Cliente<a/>
   </body>
 </html>

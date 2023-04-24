@@ -6,9 +6,9 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <form action="/new" method="POST">
-      <p>Nome:<input type="text" name="name"/></p>
-      <p>Idade:<input type="number" name="age" /></p>
+    <form action="<%= action %>" method="POST">
+	    <p>Nome:<input type="text" name="name" value="<%= result.name %>"/></p>
+      	    <p>Idade:<input type="number" name="age" value="<%= result.age %>"/></p>
       <input type="submit" value="Salvar" />
     </form>
   </body>
